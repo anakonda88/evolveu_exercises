@@ -1,4 +1,4 @@
-
+#this is to practice lists and dictionaries
 
 def play_with_lists():
     print('I am in play_with_lists')
