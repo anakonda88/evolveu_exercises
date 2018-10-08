@@ -1,12 +1,14 @@
 #to be used to import dates to convert string to a date
 import datetime
-import openpyxl as xl
+
 
 def add_five(bbbb):
     xxxx = bbbb + 5
     return xxxx
     
 def my_max(myList):
+    if len(myList) == 0:
+        return None
     maximum = myList[0]
     for i in myList[1:]:
         if i > maximum:
@@ -14,6 +16,8 @@ def my_max(myList):
     return maximum
 
 def my_min(myList):
+    if len(myList) == 0:
+        return None
     minimum = myList[0]
     for x in myList[1:]:
         if x < minimum:
@@ -35,7 +39,11 @@ def to_date(string_date):
                          int(parts[2]))
 
 def date_diff(string_date_1, string_date_2):
-    return (to_date(string_date_1) - to_date(string_date_2)).days
+    #return abs((to_date(string_date_1) - to_date(string_date_2)).days)
+    resta = (to_date(string_date_1) - to_date(string_date_2)).days
+    if resta < 0:
+        resta = resta * -1
+    return resta
 
 def contains(a, b):
     return (b in a)
@@ -48,12 +56,14 @@ def add_contents(my_list):
     return total
 
 def lookup(my_dict, code):
+    if code not in my_dict:
+        return ' mine'
     return my_dict[code] + ' mine'
 
-def verify_client(date, name):
-    wb = xl.load_workbook('/home/evolveu/Downloads/cSpace_Bookingv1.xlsx', read_only=True)
-# The worksheet needed is called 'Clients'
-    test_clients = wb['Clients']
-print(test_clients)
+# def verify_client(date, name):
+#     wb = xl.load_workbook('/home/evolveu/Downloads/cSpace_Bookingv1.xlsx', read_only=True)
+# # The worksheet needed is called 'Clients'
+#     test_clients = wb['Clients']
+# print(test_clients)
     
-  
+#   
