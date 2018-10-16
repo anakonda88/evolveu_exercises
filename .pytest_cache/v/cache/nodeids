@@ -1,0 +1,9 @@
+[
+  "test_foundation_3.py::TestFoundation::test_foundation_add",
+  "test_foundation_3.py::TestFoundation::test_foundation_dict",
+  "test_foundation_3.py::TestFoundation::test_foundation_if",
+  "test_foundation_3.py::TestFoundation::test_foundation_longest_string",
+  "test_foundation_3.py::TestFoundation::test_foundation_op",
+  "test_foundation_3.py::TestFoundation::test_foundation_range",
+  "test_foundation_3.py::TestFoundation::test_foundation_while"
+]

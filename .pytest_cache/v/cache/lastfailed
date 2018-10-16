@@ -1,0 +1,4 @@
+{
+  "test_foundation.py::TestFoundation::test_foundation": true,
+  "test_foundation_3.py::TestFoundation": true
+}

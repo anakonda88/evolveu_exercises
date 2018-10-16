@@ -1,0 +1,7 @@
+[
+  "test_t_logic.py::TestTlogic::test_largest_num",
+  "test_t_logic.py::TestTlogic::test_odd_num",
+  "test_t_logic.py::TestTlogic::test_some_range",
+  "test_t_logic.py::TestTlogic::test_some_range2",
+  "test_t_logic.py::TestTlogic::test_t_logic"
+]
