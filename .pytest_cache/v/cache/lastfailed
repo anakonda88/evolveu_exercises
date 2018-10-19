@@ -1,4 +1,13 @@
 {
   "test_foundation.py::TestFoundation::test_foundation": true,
-  "test_foundation_3.py::TestFoundation": true
+  "test_foundation_3.py::TestFoundation::test_foundation_add": true,
+  "test_foundation_3.py::TestFoundation::test_foundation_dict": true,
+  "test_foundation_3.py::TestFoundation::test_foundation_if": true,
+  "test_foundation_3.py::TestFoundation::test_foundation_if2": true,
+  "test_foundation_3.py::TestFoundation::test_foundation_if_else": true,
+  "test_foundation_3.py::TestFoundation::test_foundation_longest_string": true,
+  "test_foundation_3.py::TestFoundation::test_foundation_op": true,
+  "test_foundation_3.py::TestFoundation::test_foundation_range": true,
+  "test_foundation_3.py::TestFoundation::test_foundation_while": true,
+  "test_foundation_3.py::TestFoundation::test_foundation_while3": true
 }

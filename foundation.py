@@ -54,9 +54,41 @@ def foundation_if(temper_a_ture):
     if temper_a_ture <= 5:
         print('stay at home, it is too cold')
         return'stay at home, it is too cold'
+
+def foundation_if2(temper_a_ture):
+    if temper_a_ture <= 5:
+        print('stay at home, it is too cold')
+        return'stay at home, it is too cold'
+
+    if temper_a_ture >= 27:
+        print('do something else')
+        return 'do something else'
+
+    print('go outside and enjoy the day')
+    return 'go outside and enjoy the day'
+   
+def foundation_if_else(temper_a_ture):
+    if temper_a_ture <= -15:
+        return 'go to Hawaii hehehe'
+
+    elif temper_a_ture >= 27:
+        return 'get an air conditioning'
+
+    else:
+        return 'go outside and enjoy the day'
 #
 # while
 #
+def foundation_mientras(times, number):
+    counter = 0
+    sum = 0
+    while counter < times:
+        counter = counter + 1
+        sum = sum + number
+        print(sum)
+    return sum
+    
+
 def foundation_while(num):
     while  num > 0 and num < 10:
         print('counting up to ' + str(num))
@@ -71,15 +103,6 @@ foundation_while(5)
 #
 # range + array/list
 #
-def foundation_range(a, b):
-    out = []
-    i = a 
-    while i < b - 1:
-        i = i + 1
-        out.append(i)
-    print("hello", out)
-    return out
-foundation_range(5, 9)
 
 def foundation_range(a, b):
     out = []

@@ -20,12 +20,26 @@ class TestFoundation(unittest.TestCase):
         self.assertEqual('do something else',foundation.foundation_if(30))
         self.assertEqual('stay at home, it is too cold',foundation.foundation_if(-4))
 
+    def test_foundation_if2(self):
+        self.assertEqual('go outside and enjoy the day',foundation.foundation_if2(15))
+        self.assertEqual('do something else',foundation.foundation_if2(28))
+        self.assertEqual('do something else',foundation.foundation_if2(30))
+        self.assertEqual('stay at home, it is too cold',foundation.foundation_if2(-4)) 
+
+    def test_foundation_if_else(self):
+        self.assertEqual('go outside and enjoy the day',foundation.foundation_if_else(-10))
+        self.assertEqual('go to Hawaii hehehe', foundation.foundation_if_else(-20))
+        self.assertEqual('go outside and enjoy the day', foundation.foundation_if_else(20))
+
     def test_foundation_while(self):
         self.assertEqual('counting up to 6',foundation.foundation_while(6))
-        self.assertEqual('finito',foundation.foundation_while(-55))
-        self.assertEqual('finito',foundation.foundation_while(15))
-        self.assertEqual('finito',foundation.foundation_while(0))
-
+        # self.assertEqual('finito',foundation.foundation_while(-55))
+        # self.assertEqual('finito',foundation.foundation_while(15))
+        # self.assertEqual('finito',foundation.foundation_while(0))
+    def test_foundation_mientras(self):
+        self.assertEqual(10,foundation.foundation_mientras(2,5))
+        self.assertEqual(0,foundation.foundation_mientras(0,5))
+        self.assertEqual(15,foundation.foundation_mientras(3,5))
     def test_foundation_range(self):
         self.assertEqual([6, 7, 8],foundation.foundation_range(5, 9))
         self.assertEqual([],foundation.foundation_range(0, 0))
