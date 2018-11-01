@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <script src="Basic_1.js">
+    </script>
+    <script>
+    console.log("Hello World from inline JavaScript");
+    </script>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+
+  <body>
+  <h1>Hello World</h1>
+  <button>Push me</button>
+  <button onclick="this.innerHTML = Date()">The time is?</button>
+  <button onclick="myFunction()">Push me 2</button>
+  <button onmouseover="myMouse()">Mouse Over</button>
+  <div id='myDiv' onmouseover>Whatever</div>
+  <button onmouseover="myFunction3()">Another button</button>
+  <div id='myDiv' onmouseover="clear_all()";>Whatever</div>
+
+<svg width="600" height="100">
+  <rect width="400" height="100" style="fill:rgb(0,0,255);stroke-width:10;stroke:rgb(0,0,0)" />
+  <polygon points="100,10 40,198 190,78 10,78 160,198"
+  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" />
+  <circle id="circle" onmouseover="move_circle();" cx="50" cy="50" r="40" stroke="black" stroke-width="6" fill="lightgreen" />
+</svg>
+<br><br>
+<div>
+  <svg width="600" height="200">
+    <circle id="circle2" cx="50" cy="50" r="40" stroke="black" stroke-width="6" fill="lightblue" />
+  </svg>
+  <form name="circle_move2">
+    Move circle in X Coordinate: <input type= "text" name="textX">
+    <br>
+    Move circle in Y Coordinate: <input type="text" name="textY">
+    <br>
+    <input type="button" value="Move Circle" onclick="circle_move();"><br>
+  </form>
+  <br><br>
+</div>
+<form name="myCalculator">
+  Number_1: <input type= "text" name="num_1">
+  <br>
+  Number_2 : <input type="text" name="num_2">
+  <br>
+  <input type="button" value="calculate" onclick="addValues()"><br>
+  Result : <input type="text" name="results">
+
+</form>
+</body>
+</html>
