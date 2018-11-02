@@ -162,3 +162,102 @@ switch(job){
   default:
     console.log(firstName + ' does something else');
 }
+
+var firstName = 'Mariana';
+var age = 37;
+switch(true){
+  case age < 13:
+    console.log(firstName + ' is a little girl');
+    break;
+  case age >=13 && age < 20:
+    console.log(firstName + ' is a teenager');
+    break;
+  case age >= 20 && age <30:
+    console.log(firstName + ' is a young adult');
+    break;
+  default:
+    console.log(firstName + ' is a woman');
+  }
+
+/*Truthy and falsy values and equality operators
+falsy values: undefined, null, 0, '', NaN
+truthy values: NOT falsy values */
+
+var height;
+if (height){
+  console.log('Variable is defined');
+}else {
+  console.log('Variable has NOT been defined');
+}
+//Challenge #2
+
+var jTeamAvg = (89 + 120 + 103) / 3;
+var mTeamAvg = (116 + 94 + 123) / 3;
+var maryTeamAvg = (97 + 134 + 105) / 3;
+console.log(jTeamAvg, mTeamAvg, maryTeamAvg);
+//
+// if (jTeamAvg > mTeamAvg){
+//   console.log('John\'s team has the highest average score ' + jTeamAvg);
+// } else if (mTeamAvg > jTeamAvg){
+//   console.log(' Mike\'s team has the highest average score ' + mTeamAvg);
+// } else{
+//   console.log('There is a draw');
+// }
+if (jTeamAvg > mTeamAvg && jTeamAvg > maryTeamAvg){
+  console.log('John\'s team has the highest average score ' + jTeamAvg);
+}
+else if (mTeamAvg > jTeamAvg && mTeamAvg > maryTeamAvg){
+  console.log('Mike\'s team has the highest average score ' + mTeamAvg);
+}
+else if (maryTeamAvg > jTeamAvg && maryTeamAvg > mTeamAvg){
+  console.log('Mary\'s team has the highest average score ' + maryTeamAvg);
+} else {
+  console.log('There is a draw');
+}
+//Functions
+function calculateAge(birthYear) {
+  return 2018 - birthYear;
+}
+var ageAna = calculateAge(1977);
+var ageElias = calculateAge(1950);
+var ageOri = calculateAge(1996);
+console.log(ageAna, ageElias, ageOri);
+
+function yearsUntilretirement(year, firstName) {
+  var age = calculateAge(year);
+  var retirement = 65 - age;
+  if (retirement > 0){
+    console.log(firstName + ' will retire in ' + retirement + ' years');
+  }
+  else {
+    console.log(firstName + ' is already retired');
+  }
+}
+yearsUntilretirement(1977,'Ana');
+yearsUntilretirement(1950, 'Elias');
+yearsUntilretirement(1996, 'Ori');
+
+//Challenge #3
+
+function tipCalculator(bill){
+  var percentage;
+  if (bill < 50){
+    return bill * 20 / 100;
+  }else if  (bill >= 50 && 200){
+    return bill * 15 / 100;
+  }else {
+    return bill * 10 / 100;
+  }
+}
+
+var bill = [124, 48, 268];
+var tips = [tipCalculator(bill[0]),
+            tipCalculator(bill[1]),
+            tipCalculator(bill[2])]
+
+var finalPayment = [bill[0] + tips[0],
+                    bill[1] + tips[1],
+                    bill[2] + tips[2]]
+console.log(tips, finalPayment);
+
+//Challenge #4
