@@ -428,3 +428,15 @@ if (ronald.average > ariel.average){
   console.log(ariel.fullName +'\'s family pays higher tips with an avg of $ ' +
               ariel.average );
 }
+
+//ES5
+var name5 = 'Janice Chopra';
+var age5 = 25;
+name5 = 'Janice Cameron';
+console.log(name5);
+
+//ES6
+const name6 = 'Janice Chopra';
+let age6 = 25;
+name6 = 'Janice Cameron';
+console.log(name6);
