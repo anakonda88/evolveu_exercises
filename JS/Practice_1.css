@@ -1,44 +1,44 @@
-head{
-  text-align: center;
+h1 {
+text-align: center;
+color: blue;
 }
 .top {
 width: 100%;
 border: 2px solid black;
 min-heigh: 150px;
 text-align: center;
+text-shadow: 2px 2px black;
+color: white;
 background: blue;
 }
 .left, .right {
 width: 50%;
-height: 500px;
-background: lightblue;
+height: 100px;
+background: #6699ff;
 text-align: center;
+text-shadow: 2px 2px black;
+color: white;
 float: left;
-
 }
-
 .left {
-
-background: pink;
-
+background: #ff66a3;
 }
-
 .bottom {
 width: 100%;
-height: 150px;
+height: 100px;
 border: 2px solid black;
 text-align: center;
+text-shadow: 2px 2px black;
+color: white;
 clear: both;
 background: green;
 }
 .addDiv{
-width: 150px;
-height: 150px;
+width: 100px;
+height: 100px;
 border: 1px solid black;
 float: left;
-
 }
-
 .divBuilder, .jsonButton, .printArray, .printObject{
 border-radius: 10px;
 background-color: #4CAF50;

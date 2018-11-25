@@ -5,7 +5,6 @@ var myModule = (function() {
 	document.querySelector('.divBuilder').addEventListener('click', function(){
 
 		var div = document.createElement('littlebox');
-		// div.id = counter;
 		var insertDiv = document.querySelector('.divContainer').appendChild(div);
 		insertDiv.classList.add('addDiv');
 		var myNode = document.createTextNode(counter);
@@ -20,64 +19,57 @@ var myModule = (function() {
 		console.log(document.querySelector('.divContainer'));
 	});
 
-
-
-	//
-	// document.querySelector('.divBuilder'), function(){
-	//
-	// 	//var div = document.getElementById(div);
-	// 	var removeDiv = document.querySelector('.divContainer').classList.remove('addDiv');
-	//
-	// 	var myNode = document.removeTextNode(counter);
-	// 	div.removeChild(myNode);
-	// 	//var element = document.getElementById(div);
-	// 	counter--;
-	// });
-
-	var printJas = function(arr) {
+	var printArr = function(arr) {
 	for(i in arr) {
 		console.log (i + ' :' + arr[i])
 		}
 		Array.isArray
 	}
 
+	//
+	// document.querySelector('.jsonButton').addEventListener('click', function() {
+	// 	var myTextArray = document.querySelector('.text').value;
+	// 	var myJas = JSON.parse(myTextArray);
+	// 	var right = document.querySelector('.right');
+	// 	right.innerHTML = myJas;
+
+	document.querySelector('.jsonButton').addEventListener('click',
+												function() {
+		var myTextArray = JSON.parse(document.querySelector('.text').value);
+		// console.log(myTextArray);
+		// console.log(typeof myTextArray);
+		var max_of_array = Math.max.apply(null, myTextArray);
+		var min_of_array = Math.min.apply(null, myTextArray);
+
+		var right = document.querySelector('.right');
+		right.innerHTML = max_of_array;
+
+		var left = document.querySelector('.left');
+		left.innerHTML = min_of_array;
 
 
-	// document.querySelector('.btn').addEventListener('click', function() {
-	// 	var text = document.querySelector('.text').value;
-	// 	var bottom = document.querySelector('.bottom');
-	// 	bottom.innerHTML = text;
-	// });
-
-	document.querySelector('.jsonButton').addEventListener('click', function() {
-		var myText = document.querySelector('.text').value;
-		var myJas = JSON.parse(myText);
-		var bottom = document.querySelector('.bottom');
-		bottom.innerHTML = myJas;
-		console.log(myJas);
-
-		printJas(myJas);
-	});
+	// printArr(myJas);
+});
 
 	document.querySelector('.printArray').addEventListener('click', function() {
 		for (var i = 0; i < myArray.length; i++) {
-				console.log(myArray[i], i);
+				console.log(i + ": " + myArray[i]);
 		}
 	});
 
-	var myArray = [1,2,3,4,5,6,7];
+	var myArray = [2, 4, 6, 8, 10, 12];
 
-	document.querySelector('.printobject').addEventListener('click', function() {
-		for(i in myObject) {
-			console.log (i +' :' + myObject[i])
-		}
+	document.querySelector('.printObject').addEventListener('click',
+		function() {
+			for (i in myObject) {
+				console.log (i +': ' + myObject[i])
+			}
+		});
+			var myObject = {
+			name : 'Azucena',
+			job: 'Engineer',
+			city: 'Calgary'
+			}
 
-		var myObject = {
-		name : 'Azucena',
-		job: 'Engineer',
-		city: 'Calgary'
-		}
-	});
 
-})
-();
+})();
