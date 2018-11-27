@@ -1,3 +1,4 @@
+drop table clients;
 create table clients(
 	client_id integer NOT NULL PRIMARY KEY unique,
 	name text,
@@ -5,6 +6,7 @@ create table clients(
 	city text,
   birth_year integer);
 
+-- Populate Clients
 insert into clients (client_id, name, email, city, birth_year) values(1,'Carri Cordon','carri@cordon.com','Calgary',1980);
 insert into clients (client_id, name, email, city, birth_year) values(2,'Caren Alsop','caren@mail.com','Balzac',1990);
 insert into clients (client_id, name, email, city, birth_year) values(3,'Sierra Sandoval','sierra.sandolal@outlook.com','Airdrie',1980);
@@ -43,6 +45,7 @@ SELECT * FROM clients
 WHERE birth_year>1980 AND CITY='Balzac';
 
 --JOINS
+drop table credits;
 create table credits (
 	id integer NOT NULL PRIMARY KEY unique,
 	client_id integer,
@@ -80,25 +83,64 @@ insert into credits (id, client_id, month, credits) values(27,118,'2018-09',21);
 --  Show all the credits for client 1
 SELECT
   client_id,
-  credits
+  sum(credits) total
 FROM
   credits
 WHERE
-  client_id=1;
+  client_id=1
+GROUP BY
+  client_id;
 
---  Show the name
+--  Show the name joining with the WHERE clause
 SELECT
-  Name
+  name,
+  sum(credits) total
 FROM
-  clients
+  credits cr,
+	clients cl
 WHERE
-  client_id=1;
+  cr.client_id=1 AND
+	cr.client_id = cl.client_id
+GROUP BY
+  name
+ORDER BY
+  1;
+
+
+--  Show the name using JOIN
+SELECT
+  name,
+  sum(credits) total
+FROM
+  credits cr
+JOIN clients cl ON cr.client_id = cl.client_id
+GROUP BY
+  name
+ORDER BY
+  1;
+
+
 
 -- Show all the clients that do not have credits
+select
+  name
+from
+  clients
+where
+  client_id NOT IN (SELECT client_id from credits)
+ORDER BY
+  1;
+-- trying another exercise
 SELECT
-  client_id,
-  credits
+	client_id,
+	name,
+	email,
+	city,
+	birth_year
 FROM
-  credits
+	clients
 WHERE
-  credits IS NULL;
+client_id NOT IN (SELECT
+	                  client_id
+									FROM
+									  credits);
