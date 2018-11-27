@@ -7,30 +7,37 @@ class MyMathComp extends Component {
     let num1 = document.getElementById('num1').value;
     let num2 = document.getElementById('num2').value;
     let result = document.getElementById('result');
-    result.value = ak.math2('add', parseInt(num1), parseInt(num2));
+    result.value = ak.add(parseInt(num1), parseInt(num2));
   }
 
   mySubst = () => {
     let num1 = document.getElementById('num1').value;
     let num2 = document.getElementById('num2').value;
     let result = document.getElementById('result');
-    result.value = ak.math2('subst', parseInt(num1), parseInt(num2))
+    result.value = ak.subst(parseInt(num1), parseInt(num2));
   }
 
   myMult = () => {
     let num1 = document.getElementById('num1').value;
     let num2 = document.getElementById('num2').value;
     let result = document.getElementById('result');
-    result.value = ak.math2('mult', parseInt(num1), parseInt(num2))
+    result.value = ak.mult(parseInt(num1), parseInt(num2));
   }
 
   myOddEven = () => {
     console.log('odd or even');
     let num1 = document.getElementById('num1').value;
     let result = document.getElementById('result');
-    result.value = ak.math2('odd_even', num1);
+    result.value = ak.odd_even(parseInt(num1));
   }
 
+  math = () => {
+  let num1 = document.getElementById('num1').value;
+  let num2 = document.getElementById('num2').value;
+  let operation = document.getElementById('ops').value;
+  let result = document.getElementById('result');
+  result.value = ak.math2(operation, parseInt(num1), parseInt(num2));
+  }
 render() {
   return (
     <div className ="mathfunction">
@@ -47,6 +54,8 @@ render() {
       <br/>
       <textarea id='result' rows = '2' cols = '5'></textarea>
       <br/>
+      <input id='ops' type='text'></input><br/>
+      <button onClick={this.math}>string_ope</button>
     </div>
   );
 }

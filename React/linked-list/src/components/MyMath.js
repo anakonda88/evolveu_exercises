@@ -23,7 +23,7 @@ function odd_even(num1, num2=0) {
 let sum = add;
 console.log('I am using a variable ', sum (2, 4));
 
-function math(oper, num1, num2) {
+function myMath(oper, num1, num2) {
   if (oper === 'add'){
     return add(num1, num2)
   } else if (oper === 'subst') {
@@ -57,4 +57,4 @@ function math2(operation, num1, num2){
 
 
 
-export default {add, subst, mult, odd_even, sum, math, lookup, math2};
+export default {add, subst, mult, odd_even, sum, myMath, lookup, math2};
