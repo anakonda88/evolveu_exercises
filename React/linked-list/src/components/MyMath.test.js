@@ -20,3 +20,25 @@ test('odd_even function',() => {
   expect(ak.odd_even(10)).toBe('even');
   expect(ak.odd_even(111)).toBe('odd');
 })
+test('add_sum',() => {
+  expect(ak.sum(10, 2)).toBe(12);
+  expect(ak.sum(-12, 235)).toBe(223);
+  expect(ak.sum(15, 425)).toBe(440)
+})
+test('mathfunction',() => {
+  expect(ak.math('add', 3, 4)).toBe(7);
+  expect(ak.math('subst', 3, 4)).toBe(-1);
+  expect(ak.math('mult', 3, 4)).toBe(12);
+})
+test ('lookup',() => {
+  expect(ak.lookup(1)).toBe('one');
+  expect(ak.lookup(2)).toBe('two');
+  expect(ak.lookup(3)).toBe('three')
+})
+test('mathfunction2', () =>{
+  expect(ak.math2('add', 3, 6)).toBe(9);
+  expect(ak.math2('subst', 3, 6)).toBe(-3);
+  expect(ak.math2('mult', 3, 6)).toBe(18);
+  expect(ak.math2('odd_even', 3)).toBe('odd');
+  expect(ak.math2('odd_even', 22)).toBe('even');
+})
