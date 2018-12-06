@@ -74,7 +74,7 @@ test('getMostNorthern', () => {
   x.addCity('Calgary', 51.0486, -114.0708, 157700);
   x.addCity('Cape Town', -33.9253, 18.4239, 3700000);
   x.addCity('Spring Lake', 53.5184, -114.1408, 699);
-  expect(x.getMostNorthern().show()).toBe('Spring Lake 53.5184 -114.1408 699');
+  expect(x.show(x.getMostNorthern()).show()).toBe('Spring Lake 53.5184 -114.1408 699');
 })
 
 test('getMostSouthern', () => {
@@ -82,55 +82,86 @@ test('getMostSouthern', () => {
   x.addCity('Caracas', 10.4806, -66.9036, 2082000);
   x.addCity('Barcelona', 41.3851, 2.1734, 1610000);
   x.addCity('Buenos Aires', -34.6037, -58.3816, 2890000);
-  expect(x.getMostSouthern().show()).toBe('Buenos Aires -34.6037 -58.3816 2890000');
-  expect(x.getMostSouthern().name).toBe('Buenos Aires');
-  expect(x.getMostSouthern().lat).toBe(-34.6037);
+  expect(x.show(x.getMostSouthern()).show()).toBe('Buenos Aires -34.6037 -58.3816 2890000');
+  expect(x.show(x.getMostSouthern()).name).toBe('Buenos Aires');
+  expect(x.show(x.getMostSouthern()).lat).toBe(-34.6037);
 })
 
 test('showIndex', () => {
   let x = new ak.Community();
   x.addCity('Calgary', 51.0486, -114.0708, 157700);
-  expect(x.show(0)).toBe('Calgary 51.0486 -114.0708 157700');
+  expect(x.show(0).show()).toBe('Calgary 51.0486 -114.0708 157700');
   x.addCity('Barcelona', 41.3851, 2.1734, 1610000);
-  expect(x.show(1)).toBe('Barcelona 41.3851 2.1734 1610000');
+  expect(x.show(1).show()).toBe('Barcelona 41.3851 2.1734 1610000');
   x.addCity('Buenos Aires', -34.6037, -58.3816, 2890000);
-  expect(x.show(2)).toBe('Buenos Aires -34.6037 -58.3816 2890000');
+  expect(x.show(2).show()).toBe('Buenos Aires -34.6037 -58.3816 2890000');
 })
-
-
-
-test('playingWithPlaySeq', () => {
-  let x = new ak.PlaySeq();
-  expect(x.show()).toBe(0);
-  x.next();
-  expect(x.show()).toBe(1);
-  x.next();
-  x.next();
-  expect(x.show()).toBe(3);
-
-  let y = new ak.PlaySeq();
-  expect(y.show()).toBe(0);
-  y.next();
-  y.next();
-  expect(y.show()).toBe(2);
-  expect(x.show()).toBe(3);
-
+test('group test', () => {
+  let x = new ak.Community();
+  expect(x.getIndex()).toBe(null);
+  expect(x.getCity().name).toBe(null);
+  x.addCity('Caracas', 10.4806, -66.9036, 2082000);
+  x.addCity('Barcelona', 41.3851, 2.1734, 1610000);
+  x.addCity('Buenos Aires', -34.6037, -58.3816, 2890000);
+  expect(x.getCity().name).toBe('Buenos Aires');
   x.first();
-  expect(x.show()).toBe(1);
+  expect(x.getCity().name).toBe('Caracas');
+  expect(x.getIndex()).toBe(0);
+  x.next();
+  expect(x.getCity().name).toBe('Barcelona');
+  expect(x.getIndex()).toBe(1);
+  x.last();
+  expect(x.getCity().name).toBe('Buenos Aires');
+  expect(x.getIndex()).toBe(2);
+  x.first();
+  x.prev();
+  expect(x.getCity().name).toBe('Buenos Aires');
+  expect(x.getIndex()).toBe(2);
+  x.reset();
+  expect(x.getIndex()).toBe(null);
+  expect(x.getCity().name).toBe(null);
 
-  x.quantity = 100;
-  expect(x.quantity).toBe(100);
-
-  x.addQuantity(100);
-  expect(x.quantity).toBe(200);
 })
 
+//--------------------------------------
+// test('playingWithPlaySeq', () => {
+//   let x = new ak.PlaySeq();
+//   expect(x.show()).toBe(0);
+//   x.next();
+//   expect(x.show()).toBe(1);
+//   x.next();
+//   x.next();
+//   expect(x.show()).toBe(3);
+//
+//   let y = new ak.PlaySeq();
+//   expect(y.show()).toBe(0);
+//   y.next();
+//   y.next();
+//   expect(y.show()).toBe(2);
+//   expect(x.show()).toBe(3);
+//
+//   x.first();
+//   expect(x.show()).toBe(1);
+//
+//   x.quantity = 100;
+//   expect(x.quantity).toBe(100);
+//
+//   x.addQuantity(100);
+//   expect(x.quantity).toBe(200);
+// })
+//
 
 
 
-//
-//
-//
+
+
+
+
+
+
+
+
+
 // let myFav = new ak.City('Monterrey',  25.6866, -100.3161, 1136000);
 // console.log(myFav);
 //

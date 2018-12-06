@@ -3,9 +3,9 @@ class City extends Object {
   constructor(name, latitude, longitude, population) {
     super();
     this.name = name;
-    this.lat= latitude;
-    this.long = longitude;
-    this.pop = population;
+    this.lat= parseFloat(latitude);
+    this.long = parseFloat(longitude);
+    this.pop = parseFloat(population);
   }
 
   show() {
@@ -58,7 +58,10 @@ class Community extends Object{
   constructor(){
     super();
     this.listOfCities = [];
-    this.index = 0;
+    this.index = -1;
+    this.length = 0;
+    //using -1 because if I set this.index in '0' when I push
+    //my first item the position will be [1] instead of [0]
   }
 
   // addCity(name, latitude, longitude, population) {
@@ -77,20 +80,26 @@ class Community extends Object{
                           latitude,
                           longitude,
                           population);
+      //tmpCity is the new city that I'm adding to the Community
       if(length > 0){
+        //to push the last city of the array to the end
       this.listOfCities.push(this.listOfCities[length - 1]);
         var i;
         for(i=length-1;i>this.index+1;i--){
+          //this.index is my 'pointer' where I'm inserting
+          //my new element/city
+
           this.listOfCities[i] = this.listOfCities[i - 1]
+          //move or copy [i - 1]to [i] position
         }
         this.listOfCities[this.index + 1] = tmpCity;
-        this.index++;
       }
       else{
         this.listOfCities.push(tmpCity)
       }
-
-  }
+      this.index++;
+      this.length++
+}
 
 
   getPopulation(){
@@ -103,41 +112,39 @@ class Community extends Object{
   }
 
   getMostNorthern(){
-    let max = -90;
-    //let max = this.listOfCities[0].lat
+    let max = this.listOfCities[0].lat;
     let cityIdx = 0;
     var i;
-    for(i=0;i<this.listOfCities.length;i++){
+    for(i=1;i<this.listOfCities.length;i++){
       if(this.listOfCities[i].lat > max){
         max = this.listOfCities[i].lat;
         cityIdx = i;
       }
     }
-    return this.listOfCities[cityIdx]
+    return cityIdx
   }
 
   getMostSouthern(){
-    let min = 90;
-    //let min = this.listOfCities[0].lat
+    let min = this.listOfCities[0].lat
     let cityIdx = 0;
     var i;
-    for(i=0;i<this.listOfCities.length;i++){
+    for(i=1;i<this.listOfCities.length;i++){
       if(this.listOfCities[i].lat < min){
         min = this.listOfCities[i].lat;
         cityIdx = i;
       }
     }
-    return this.listOfCities[cityIdx]
+    return cityIdx
   //  return this.listOfCities[cityIdx].lat
   }
 
   show(index){
-    //console.log(index+1, this.listOfCities[index]);
-    return this.listOfCities[index].show();
+    console.log(index+1, this.listOfCities[index]);
+    return this.listOfCities[index];
   }
 
   next(){
-    if(this.index==listOfCities.length - 1){
+    if(this.index==this.listOfCities.length - 1){
       this.index = 0}
     else{
       this.index += 1;
@@ -146,7 +153,7 @@ class Community extends Object{
 
   prev(){
     if(this.index == 0){
-      this.index==listOfCities.length - 1
+      this.index = this.listOfCities.length - 1
     }
     else{
       this.index -= 1;
@@ -160,39 +167,63 @@ class Community extends Object{
   last(){
     this.index = this.listOfCities.length - 1;
   }
+
+  getCity(){
+    let length = this.listOfCities.length;
+    if(length > 0){
+      return this.listOfCities[this.index]
+    }
+    else{
+      return new City(null, null, null, null)
+    }
+  }
+  getIndex(){
+    let length = this.listOfCities.length;
+    if(length > 0){
+      return this.index;
+    }
+    else{
+      return null
+    }
+  }
+  reset(){
+    this.listOfCities = [];
+    this.index = -1;
+    this.length = 0
+  }
 }
-
-class PlaySeq extends Object {
-
-  constructor(){
-    super();
-    this.index = 0;
-    //this.quantity = 100;
-    console.log('I am in constructor');
-  }
-
-  show(){
-    return this.index
-  }
-
-  next(){
-    this.index += 1;
-  }
-  prev(){
-    this.index -= 1;
-  }
-  first(){
-    this.index = 1;
-  }
-
-  addQuantity(){
-    this.quantity = this.quantity + 100;
-  }
-
-}
-
-
+//-----------------------------------------------------
+// class PlaySeq extends Object {
+//
+//   constructor(){
+//     super();
+//     this.index = 0;
+//     //this.quantity = 100;
+//     console.log('I am in constructor');
+//   }
+//
+//   show(){
+//     return this.index
+//   }
+//
+//   next(){
+//     this.index += 1;
+//   }
+//   prev(){
+//     this.index -= 1;
+//   }
+//   first(){
+//     this.index = 0;
+//   }
+//
+//   addQuantity(){
+//     this.quantity = this.quantity + 100;
+//   }
+//
+// }
 
 
 
-export default{City, Community, PlaySeq};
+
+
+export default{City, Community};
