@@ -186,6 +186,15 @@ class Community extends Object{
       return null
     }
   }
+  showList(){
+    var i;
+    let tmpStr = ''; //to add just the object
+    for(i=0;i<this.length;i++){
+      let idxPlusOne = (i + 1).toString();
+      tmpStr += idxPlusOne + ' ' + this.listOfCities[i].show() + '\n';
+    }
+    return tmpStr
+  }
   reset(){
     this.listOfCities = [];
     this.index = -1;

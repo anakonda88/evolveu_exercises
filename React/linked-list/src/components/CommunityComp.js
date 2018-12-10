@@ -5,54 +5,72 @@ myComm.addCity('Calgary', 51.0486, -114.0708, 157700);
 myComm.addCity('Barcelona', 41.3851, 2.1734, 1610000);
 myComm.addCity('Buenos Aires', -34.6037, -58.3816, 2890000);
 
-function showList(){
-  var idx;
-  document.getElementById('list').value = ''; //to add just the object
-  for(idx=0;idx<myComm.length;idx++){
-    document.getElementById('list').value += myComm.show(idx).show() + '\n';
-  }
-}
 
 class CommunityComp extends Component {
-
+  // constructor(){
+  //  super();
+  //  this.state = {
+  //     myComm: new ak.Community()
+  //   }
+  // }
   reset() {
     myComm.reset();
-    showList();
+    document.getElementById('list').value = myComm.showList();
   }
 
   addCity() {
+
     let name = document.getElementById('name').value;
     let lat = document.getElementById('lat').value;
     let long = document.getElementById('long').value;
     let pop = document.getElementById('pop').value;
-
+    //this.state.addCity(name, lat, long, pop);
     myComm.addCity(name, lat, long, pop);
     //Show the last added city to the myComm Community
-    showList();
+    document.getElementById('list').value = myComm.showList();
+    document.getElementById('index').value = myComm.index + 1;
   }
 
   getPopulation() {
     let pop = document.getElementById('show').value = myComm.getPopulation();
     //using ('show') to display the total population in the lower box if
     //I want to display it at the pop box, I need to write ('pop')
-    showList();
+    document.getElementById('list').value = myComm.showList();
   }
 
   northern() {
     document.getElementById('show').value =
     myComm.show(myComm.getMostNorthern()).show();
-    showList();
+    document.getElementById('list').value = myComm.showList();
   }
 
   southern() {
     document.getElementById('show').value =
     myComm.show(myComm.getMostSouthern()).show();
-    showList();
+    document.getElementById('list').value = myComm.showList();
   }
 
   first() {
+    myComm.first();
+    document.getElementById('index').value = myComm.index + 1;
+  }
+
+  next() {
+    myComm.next();
+    document.getElementById('index').value = myComm.index + 1;
+  }
+
+  previous() {
+    myComm.prev();
+    document.getElementById('index').value = myComm.index + 1;
 
   }
+  last() {
+    myComm.last();
+    document.getElementById('index').value = myComm.index + 1;
+
+  }
+
   clear() {
     document.getElementById('name').value = '';
     document.getElementById('lat').value = '';
@@ -71,7 +89,7 @@ class CommunityComp extends Component {
         <textarea id='pop' rows = '1' cols = '8'></textarea>
         <br/>
         <button onClick={this.reset}>Reset</button>
-        <button onClick={this.addCity}>New City</button>
+        <button onClick={this.addCity}>Add City</button>
         <button onClick={this.getPopulation}>Population</button>
         <button onClick={this.northern}>Northern</button>
         <button onClick={this.southern}>Southern</button>

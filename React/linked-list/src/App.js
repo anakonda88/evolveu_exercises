@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import LinkedListComp from './components/LinkedListComp.js';
 import MyMathComp from './components/MyMathComp.js';
+import CommunityComp from './components/CommunityComp.js';
 
 class App extends Component {
   onPassedFunction = ()=>{
@@ -13,7 +14,8 @@ class App extends Component {
       <div className="App">
       <h1>Hello World 1</h1>
       <MyMathComp name='Top1'/>
-      <LinkedListComp name='Top2' func={this.onPassedFunction}/>
+      <CommunityComp name='Top2'/>
+      <LinkedListComp name='Top3' func={this.onPassedFunction}/>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>

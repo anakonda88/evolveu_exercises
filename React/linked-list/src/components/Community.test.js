@@ -96,7 +96,7 @@ test('showIndex', () => {
   x.addCity('Buenos Aires', -34.6037, -58.3816, 2890000);
   expect(x.show(2).show()).toBe('Buenos Aires -34.6037 -58.3816 2890000');
 })
-test('group test', () => {
+test('test first last previous next and get', () => {
   let x = new ak.Community();
   expect(x.getIndex()).toBe(null);
   expect(x.getCity().name).toBe(null);
@@ -120,6 +120,29 @@ test('group test', () => {
   x.reset();
   expect(x.getIndex()).toBe(null);
   expect(x.getCity().name).toBe(null);
+})
+test('addCity first', () => {
+  let x = new ak.Community();
+  x.addCity('Caracas', 10.4806, -66.9036, 2082000);
+  x.addCity('Barcelona', 41.3851, 2.1734, 1610000);
+  x.addCity('Buenos Aires', -34.6037, -58.3816, 2890000);
+  x.first();
+  x.addCity('Spring Lake', 53.5184, -114.1408, 699);
+  expect(x.getCity().name).toBe('Spring Lake');
+  expect(x.getIndex()).toBe(1);
+  x.first();
+  x.next();
+  x.next();
+  x.addCity('Cape Town', -33.9253, 18.4239, 3700000);
+  expect(x.getCity().name).toBe('Cape Town');
+  expect(x.getIndex()).toBe(3);
+  x.next();
+  expect(x.getCity().name).toBe('Buenos Aires');
+  expect(x.getIndex()).toBe(4);
+  x.prev();
+  x.prev();
+  expect(x.getCity().name).toBe('Barcelona');
+  expect(x.getIndex()).toBe(2);
 
 })
 
