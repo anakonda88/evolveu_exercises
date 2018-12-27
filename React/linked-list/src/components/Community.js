@@ -64,13 +64,6 @@ class Community extends Object{
     //my first item the position will be [1] instead of [0]
   }
 
-  // addCity(name, latitude, longitude, population) {
-  //   this.listOfCities.push(new City(name,
-  //                                   latitude,
-  //                                   longitude,
-  //                                   population));
-  // }
-
   addCity(name, latitude, longitude, population) {
       /* move all cities from index and above
        one position up */
@@ -99,8 +92,8 @@ class Community extends Object{
       }
       this.index++;
       this.length++
-}
 
+    }
 
   getPopulation(){
     let total = 0;

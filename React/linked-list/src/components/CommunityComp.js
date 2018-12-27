@@ -1,84 +1,89 @@
 import React, { Component } from 'react';
 import ak from './Community';
-let myComm = new ak.Community();
-myComm.addCity('Calgary', 51.0486, -114.0708, 157700);
-myComm.addCity('Barcelona', 41.3851, 2.1734, 1610000);
-myComm.addCity('Buenos Aires', -34.6037, -58.3816, 2890000);
+// let myComm = new ak.Community();
+// myComm.addCity('Calgary', 51.0486, -114.0708, 157700);
+// myComm.addCity('Barcelona', 41.3851, 2.1734, 1610000);
+// myComm.addCity('Buenos Aires', -34.6037, -58.3816, 2890000);
 
 
 class CommunityComp extends Component {
-  // constructor(){
-  //  super();
-  //  this.state = {
-  //     myComm: new ak.Community()
-  //   }
-  // }
-  reset() {
-    myComm.reset();
-    document.getElementById('list').value = myComm.showList();
+  constructor(){
+   super();
+   this.state = {
+      myComm: new ak.Community()
+    }
   }
 
-  addCity() {
+  reset = () => {
+    this.state.myComm.reset();
+    document.getElementById('list').value = this.state.myComm.showList();
+  }
 
+  addCity = () => {
     let name = document.getElementById('name').value;
     let lat = document.getElementById('lat').value;
     let long = document.getElementById('long').value;
     let pop = document.getElementById('pop').value;
-    //this.state.addCity(name, lat, long, pop);
-    myComm.addCity(name, lat, long, pop);
+    this.state.myComm.addCity(name, lat, long, pop)
     //Show the last added city to the myComm Community
-    document.getElementById('list').value = myComm.showList();
-    document.getElementById('index').value = myComm.index + 1;
+
+    document.getElementById('list').value = this.state.myComm.showList();
+    document.getElementById('index').value = this.state.myComm.index + 1;
+    console.log(this.state.myComm);
   }
 
-  getPopulation() {
-    let pop = document.getElementById('show').value = myComm.getPopulation();
+  getPopulation = () => {
+    let pop = document.getElementById('show').value = this.state.myComm.getPopulation();
     //using ('show') to display the total population in the lower box if
     //I want to display it at the pop box, I need to write ('pop')
-    document.getElementById('list').value = myComm.showList();
+    document.getElementById('list').value = this.state.myComm.showList();
   }
 
-  northern() {
+  northern = () => {
     document.getElementById('show').value =
-    myComm.show(myComm.getMostNorthern()).show();
-    document.getElementById('list').value = myComm.showList();
+    this.state.myComm.getMostNorthern();
+    //this.state.myComm.show(this.state.myComm.getMostNorthern()).show();
+    document.getElementById('list').value = this.state.myComm.showList();
   }
 
-  southern() {
+  southern = () => {
     document.getElementById('show').value =
-    myComm.show(myComm.getMostSouthern()).show();
-    document.getElementById('list').value = myComm.showList();
+            this.state.myComm.show(this.state.myComm.getMostSouthern()).show();
+    document.getElementById('list').value = this.state.myComm.showList();
   }
 
-  first() {
-    myComm.first();
-    document.getElementById('index').value = myComm.index + 1;
+  first = () => {
+    this.state.myComm.first();
+    document.getElementById('index').value = this.state.myComm.index + 1;
+    document.getElementById('show').value = this.state.myComm.getCity().name +
+                                            ' '+ this.state.myComm.getCity().lat;
   }
 
-  next() {
-    myComm.next();
-    document.getElementById('index').value = myComm.index + 1;
+  next = () => {
+    this.state.myComm.next();
+    document.getElementById('index').value = this.state.myComm.index + 1;
   }
 
-  previous() {
-    myComm.prev();
-    document.getElementById('index').value = myComm.index + 1;
+  previous = () => {
+    this.state.myComm.prev();
+    document.getElementById('index').value = this.state.myComm.index + 1;
 
   }
-  last() {
-    myComm.last();
-    document.getElementById('index').value = myComm.index + 1;
+  last = () => {
+    this.state.myComm.last();
+    document.getElementById('index').value = this.state.myComm.index + 1;
 
   }
 
-  clear() {
+  clear = () => {
     document.getElementById('name').value = '';
     document.getElementById('lat').value = '';
     document.getElementById('long').value = '';
     document.getElementById('pop').value = ''
   }
 
-  render() {
+  render = () => {
+    console.log(this.state.myComm);
     return (
       <div className ="community">
         <h2>Community </h2>
