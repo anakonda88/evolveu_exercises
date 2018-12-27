@@ -12,8 +12,7 @@ class PeopleComp extends Component {
   addPeople = () => {
     let name = document.getElementById('name2').value;
     let age = document.getElementById('age').value;
-    let dollars = document.getElementById('dollars').value;
-    this.state.myFam.addPeople(name, age, dollars)
+    this.state.myFam.addPeople(name, age)
     document.getElementById('peopleList').innerHTML = this.state.myFam.show();
   }
 
@@ -29,7 +28,6 @@ class PeopleComp extends Component {
   clear2 = () => {
     let name = document.getElementById('name2').value = '';
     let age = document.getElementById('age').value = '';
-    let dollars = document.getElementById('dollars').value = '';
   }
   render = () => {
 
@@ -37,11 +35,11 @@ class PeopleComp extends Component {
       <div className ="people">
         <h2>People </h2>
         <br/>
-        <textarea id='name2' rows = '1' cols = '8'></textarea>
-        <textarea id='age' rows = '1' cols = '8'></textarea>
-        <textarea id='dollars' rows = '1' cols = '8'></textarea>
+        Name: <input id='name2' type='text'></input>
         <br/>
-        <button onClick={this.addPeople}>People</button>
+        Age: <input id='age' type='text'></input>
+        <br/>
+        <button onClick={this.addPeople}>Name</button>
         <button onClick={this.addAge}>Age</button>
         <button onClick={this.addBirthday}>Birthday</button>
         <br/>
@@ -49,9 +47,8 @@ class PeopleComp extends Component {
         <br/>
         <div id='peopleList' ></div>
         <br/>
-
-
       </div>
+
     );
   }
 }

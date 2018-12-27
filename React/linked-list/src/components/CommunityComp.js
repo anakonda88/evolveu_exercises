@@ -88,10 +88,14 @@ class CommunityComp extends Component {
       <div className ="community">
         <h2>Community </h2>
         <br/>
-        <textarea id='name' rows = '1' cols = '8'></textarea>
-        <textarea id='lat' rows = '1' cols = '8'></textarea>
-        <textarea id='long' rows = '1' cols = '8'></textarea>
-        <textarea id='pop' rows = '1' cols = '8'></textarea>
+        City: <input id='name' type='text'></input>
+        <br/>
+        Latitude: <input id='name' type='text'></input>
+        <br/>
+        Longitude: <input id='name' type='text'></input>
+        <br/>
+        Population: <input id='name' type='text'></input>
+
         <br/>
         <button onClick={this.reset}>Reset</button>
         <button onClick={this.addCity}>Add City</button>
@@ -107,9 +111,9 @@ class CommunityComp extends Component {
         <br/>
         <button onClick={this.clear}>Clear</button>
         <br/>
-        <textarea id='show' rows = '1' cols = '40'></textarea>
+        <div id='show'></div>
         <br/>
-        <textarea id='list' rows = '6' cols = '40'></textarea>
+        <div id='list'></div>
         <br/>
 
 

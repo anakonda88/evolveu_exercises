@@ -7,28 +7,28 @@ class MyMathComp extends Component {
     let num1 = document.getElementById('num1').value;
     let num2 = document.getElementById('num2').value;
     let result = document.getElementById('result');
-    result.value = ak.add(parseInt(num1), parseInt(num2));
+    result.innerHTML = ak.add(parseInt(num1), parseInt(num2));
   }
 
-  mySubst = () => {
+  mySubt = () => {
     let num1 = document.getElementById('num1').value;
     let num2 = document.getElementById('num2').value;
     let result = document.getElementById('result');
-    result.value = ak.subst(parseInt(num1), parseInt(num2));
+    result.innerHTML = ak.subt(parseInt(num1), parseInt(num2));
   }
 
   myMult = () => {
     let num1 = document.getElementById('num1').value;
     let num2 = document.getElementById('num2').value;
     let result = document.getElementById('result');
-    result.value = ak.mult(parseInt(num1), parseInt(num2));
+    result.innerHTML = ak.mult(parseInt(num1), parseInt(num2));
   }
 
   myOddEven = () => {
     console.log('odd or even');
     let num1 = document.getElementById('num1').value;
     let result = document.getElementById('result');
-    result.value = ak.odd_even(parseInt(num1));
+    result.innerHTML = ak.odd_even(parseInt(num1));
   }
 
   math = () => {
@@ -36,26 +36,26 @@ class MyMathComp extends Component {
   let num2 = document.getElementById('num2').value;
   let operation = document.getElementById('ops').value;
   let result = document.getElementById('result');
-  result.value = ak.math2(operation, parseInt(num1), parseInt(num2));
+  result.innerHTML = ak.math2(operation, parseInt(num1), parseInt(num2));
   }
 render() {
   return (
     <div className ="mathfunction">
-      <h2>My Math </h2>
+      <h2>Math</h2>
       <br/>
-      <textarea id='num1' rows = '1' cols = '5'></textarea>
-      <textarea id='num2' rows = '1' cols = '5'></textarea>
+      Number: <input id='num1' type='text'></input>
+      <br/>
+      Number: <input id='num2' type='text'></input>
       <br/>
       <button onClick={this.myAdd}>Add</button>
-      <button onClick={this.mySubst}>Substraction</button>
+      <button onClick={this.mySubt}>Subtraction</button>
       <button onClick={this.myMult}>Multiplication</button>
-      <br/>
       <button onClick={this.myOddEven}>Odd or Even</button>
       <br/>
-      <textarea id='result' rows = '2' cols = '5'></textarea>
+      <input id='ops' type='text'></input>
+      <button onClick={this.math}>string_ope</button><br/>
+      <div id='result' ></div>
       <br/>
-      <input id='ops' type='text'></input><br/>
-      <button onClick={this.math}>string_ope</button>
     </div>
   );
 }

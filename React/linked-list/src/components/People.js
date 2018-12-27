@@ -1,10 +1,10 @@
 
 class People extends Object {
-  constructor(name, age, dollars){
+  constructor(name, age){
     super();
     this.name = name;
     this.age = parseInt(age);
-    this.dollars = parseInt(dollars);
+
   }
 
   birthday(){
@@ -13,8 +13,7 @@ class People extends Object {
 
   show(){
     return this.name + ', ' +
-            this.age + ', ' +
-            this.dollars
+            this.age 
   }
 }
 
@@ -26,8 +25,8 @@ class Family extends Object {
 
   }
 
-  addPeople(name, age, dollars){
-    let tmpPeople = new People(name, age, dollars);
+  addPeople(name, age){
+    let tmpPeople = new People(name, age);
 
     this.listOfPeople.push(tmpPeople)
   }
