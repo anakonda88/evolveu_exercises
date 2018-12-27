@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import LinkedListComp from './components/LinkedListComp.js';
 import MyMathComp from './components/MyMathComp.js';
 import CommunityComp from './components/CommunityComp.js';
 import PeopleComp from './components/PeopleComp.js';
@@ -14,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Underpuppies App</h1>
+        <h1>Practice</h1>
         <MyMathComp name='Top1'/>
         <CommunityComp name='Top2'/>
         <PeopleComp name='Top3'/>
