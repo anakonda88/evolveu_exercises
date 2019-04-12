@@ -36,7 +36,7 @@ class PeopleComp extends Component {
         <h2>People </h2>
         <br/>
         Name: <input id='name2' type='text'></input>
-        <br/>
+        
         Age: <input id='age' type='text'></input>
         <br/>
         <button onClick={this.addPeople}>Name</button>

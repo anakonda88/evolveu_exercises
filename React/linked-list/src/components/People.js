@@ -13,7 +13,7 @@ class People extends Object {
 
   show(){
     return this.name + ', ' +
-            this.age 
+            this.age
   }
 }
 

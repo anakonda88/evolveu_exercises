@@ -41,7 +41,7 @@ class MyMathComp extends Component {
 render() {
   return (
     <div className ="mathfunction">
-      <h2>Math</h2>
+      <h2>Hello from Math Component</h2>
       <br/>
       Number: <input id='num1' type='text'></input>
       <br/>

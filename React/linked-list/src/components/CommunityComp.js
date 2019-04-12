@@ -86,14 +86,14 @@ class CommunityComp extends Component {
     console.log(this.state.myComm);
     return (
       <div className ="community">
-        <h2>Community </h2>
+        <h2>City </h2>
         <br/>
         City: <input id='name' type='text'></input>
-        <br/>
+
         Latitude: <input id='name' type='text'></input>
-        <br/>
+
         Longitude: <input id='name' type='text'></input>
-        <br/>
+        
         Population: <input id='name' type='text'></input>
 
         <br/>

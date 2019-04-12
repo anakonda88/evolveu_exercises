@@ -6,6 +6,7 @@ console.log(add(2, 6));
 function subt(num1, num2) {
   return num1 - num2
 }
+console.log(subt(3, 2));
 
 function mult(num1, num2) {
   return num1 * num2
